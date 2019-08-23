@@ -12,8 +12,15 @@ def main():
     guessed = set()
 
     # Opening words database
-    with open('words.json') as f:
-        categories = json.load(f)
+    try:
+        words = open('words.json')
+    except IOError:
+        print('Can\'t locate words.json in local directory.')
+        time.sleep(3)
+        sys.exit()
+
+    with words:
+        categories = json.load(words)
 
     while True:
         print('######################')
