@@ -52,8 +52,11 @@ def main():
                     print('No special characters!')
         # Endgame
         else:
+            # Show the answer if he lost
             if lifes < 1:
                 print(' '.join(random_word).upper() + ' <- ANSWER')
+
+            # Ask if the user wants to continue the game
             option = input(
                 '\nGame over! Do you want to continue? (Y/N) ').lower()
             if option == 'y' or option == 'yes':
