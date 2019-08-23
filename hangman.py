@@ -68,7 +68,7 @@ def main():
                 print('What?')
 
         time.sleep(1)
-        os.system('cls')
+        os.system('cls' if os.name == 'nt' else 'clear')
 
 
 def replace_letter(letter, word, hidden_word):
