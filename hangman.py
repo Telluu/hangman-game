@@ -8,8 +8,8 @@ import json
 
 def main():
 
-    guessed = set()
     lives = 8
+    guessed = set()
 
     # Opening words database
     with open('words.json') as f:
@@ -26,8 +26,7 @@ def main():
 
         # Taking and checking user input
         try:
-            choosen_category = int(
-                input(f'\nChoose category (1-{len(categories)}): '))
+            choosen_category = int(input(f'\nChoose (1-{len(categories)}): '))
         except ValueError:
             print(f'Only integers!')
         if choosen_category > 0 and choosen_category <= len(categories):
