@@ -18,11 +18,11 @@ def main():
         print('Can\'t locate words.json in local directory.')
         time.sleep(3)
         sys.exit()
-
     with words:
         categories = json.load(words)
 
     while True:
+        os.system('cls' if os.name == 'nt' else 'clear')
         print('######################')
         print('---Hangman by Tellu---')
         print('######################\n')
@@ -33,28 +33,28 @@ def main():
 
         # Taking and checking user input
         try:
-            choosen_category = int(input(f'\nChoose (1-{len(categories)}): '))
+            choosed_category = int(input(f'\nChoose (1-{len(categories)}): '))
         except ValueError:
             print(f'Only integers!')
+            continue
 
-        # Checking if category exists
-        if choosen_category > 0 and choosen_category <= len(categories):
-            # Then choosing category
+        # Checking if inputed category exists
+        if choosed_category > 0 and choosed_category <= len(categories):
+            # Then picking a random word from choosen category
             for index, category in enumerate(categories):
-                if (choosen_category - 1) == index:
+                if (choosed_category - 1) == index:
                     random_word = random.choice(categories[category])
                     break
-            os.system('cls' if os.name == 'nt' else 'clear')
             break
         else:
-            print(f'There is no category with index {choosen_category}')
+            print(f'There is no category with index {choosed_category}.')
 
-        time.sleep(1)
-        os.system('cls' if os.name == 'nt' else 'clear')
+        time.sleep(1.5)
 
     shown_word = ['_' if letter != ' ' else ' ' for letter in random_word]
 
     while True:
+        os.system('cls' if os.name == 'nt' else 'clear')
         print('######################')
         print('---Hangman by Tellu---')
         print('######################\n')
@@ -72,7 +72,7 @@ def main():
             if len(letter) == 1 and letter in string.ascii_letters:
                 # And not already tried letter
                 if letter in guessed:
-                    print('You guessed it earlier!')
+                    print('You tried this letter already!')
                 # And is in a random word
                 elif letter in random_word:
                     # Then replace a letter using a func
@@ -109,7 +109,6 @@ def main():
                 print('What?')
 
         time.sleep(1)
-        os.system('cls' if os.name == 'nt' else 'clear')
 
 
 def replace_letter(letter, word, hidden_word):

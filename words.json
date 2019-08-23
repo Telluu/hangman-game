@@ -1,7 +1,21 @@
 {
   "animals": ["dog", "cat", "mouse"],
   "foods": ["apple", "banana", "orange"],
-  "places": ["london", "new york", "moscow"],
+  "places": ["warsaw", "new york", "moscow"],
+  "countries": [
+    "poland",
+    "united states",
+    "china",
+    "india",
+    "indonesia",
+    "brazil",
+    "pakistan",
+    "nigeria",
+    "bangladesh",
+    "russia",
+    "mexico",
+    "japan"
+  ],
   "objects": ["mouse", "keyboard", "book"],
   "sports": ["soccer", "boxing", "golf"],
   "professions": ["programmer", "firefighter", "dentist"]
