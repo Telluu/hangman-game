@@ -30,19 +30,15 @@ def main():
                 input(f'\nChoose category (1-{len(categories)}): '))
         except ValueError:
             print(f'Only integers!')
-        else:
-            # Choosing a random word from selected category
+        if choosen_category > 0 and choosen_category <= len(categories):
             for index, category in enumerate(categories):
                 if (choosen_category - 1) == index:
                     random_word = random.choice(categories[category])
                     break
-            try:
-                random_word == None
-            except NameError:
-                print(f'There is no category with index {choosen_category}')
-            else:
-                os.system('cls' if os.name == 'nt' else 'clear')
-                break
+            os.system('cls' if os.name == 'nt' else 'clear')
+            break
+        else:
+            print(f'There is no category with index {choosen_category}')
 
         time.sleep(1)
         os.system('cls' if os.name == 'nt' else 'clear')
