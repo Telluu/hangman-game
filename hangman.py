@@ -1,17 +1,52 @@
 import string
 import random
-import time
 import os
 import sys
+import time
+import json
 
 
 def main():
 
-    words = ['hello world']
-    guessed = []
+    guessed = set()
     lives = 8
 
-    random_word = random.choice(words)
+    # Opening words database
+    with open('words.json') as f:
+        categories = json.load(f)
+
+    while True:
+        print('######################')
+        print('---Hangman by Tellu---')
+        print('######################\n')
+
+        # Printing all the available categories
+        for index, category in enumerate(categories):
+            print(f'{index + 1}.{category.title()}')
+
+        # Taking and checking user input
+        try:
+            choosen_category = int(
+                input(f'\nChoose category (1-{len(categories)}): '))
+        except ValueError:
+            print(f'Only integers!')
+        else:
+            # Choosing a random word from selected category
+            for index, category in enumerate(categories):
+                if (choosen_category - 1) == index:
+                    random_word = random.choice(categories[category])
+                    break
+            try:
+                random_word == None
+            except NameError:
+                print(f'There is no category with index {choosen_category}')
+            else:
+                os.system('cls' if os.name == 'nt' else 'clear')
+                break
+
+        time.sleep(1)
+        os.system('cls' if os.name == 'nt' else 'clear')
+
     shown_word = ['_' if letter != ' ' else ' ' for letter in random_word]
 
     while True:
@@ -19,6 +54,7 @@ def main():
         print('---Hangman by Tellu---')
         print('######################\n')
 
+        print(f'Category: {category.title()}')
         print(f'Lives: {lives}\n')
 
         print(' '.join(shown_word).upper())
@@ -41,7 +77,7 @@ def main():
                     # Else subtract one life
                     lives -= 1
                     print('No!')
-                guessed.append(letter)
+                guessed.add(letter)
 
             # Invalid input handling
             else:

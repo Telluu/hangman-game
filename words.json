@@ -1,0 +1,8 @@
+{
+  "animals": ["dog", "cat", "mouse"],
+  "foods": ["apple", "banana", "orange"],
+  "places": ["london", "new york", "moscow"],
+  "objects": ["mouse", "keyboard", "book"],
+  "sports": ["soccer", "boxing", "golf"],
+  "professions": ["programmer", "firefighter", "dentist"]
+}
