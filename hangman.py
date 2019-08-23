@@ -9,7 +9,7 @@ def main():
 
     words = ['hello world']
     guessed = []
-    lifes = 8
+    lives = 8
 
     random_word = random.choice(words)
     shown_word = ['_' if letter != ' ' else ' ' for letter in random_word]
@@ -19,12 +19,12 @@ def main():
         print('---Hangman by Tellu---')
         print('######################\n')
 
-        print(f'Lifes: {lifes}\n')
+        print(f'Lives: {lives}\n')
 
         print(' '.join(shown_word).upper())
 
         # If he didnt lose and didn't guess all the letters, ask for input
-        if lifes > 0 and '_' in shown_word:
+        if lives > 0 and '_' in shown_word:
             letter = input('\nGuess: ').lower()
 
             # If input is a letter
@@ -39,7 +39,7 @@ def main():
                     print('Yes!')
                 else:
                     # Else subtract one life
-                    lifes -= 1
+                    lives -= 1
                     print('No!')
                 guessed.append(letter)
 
@@ -53,7 +53,7 @@ def main():
         # Endgame
         else:
             # Show the answer if user lost
-            if lifes < 1:
+            if lives < 1:
                 print(' '.join(random_word).upper() + ' <- ANSWER')
 
             # Ask if the user wants to play again
