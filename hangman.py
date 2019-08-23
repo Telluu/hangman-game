@@ -2,13 +2,14 @@ import string
 import random
 import time
 import os
+import sys
 
 
 def main():
 
     words = ['hello world']
     guessed = []
-    lives = 8
+    lifes = 8
 
     random_word = random.choice(words)
     shown_word = ['_' if letter != ' ' else ' ' for letter in random_word]
@@ -18,41 +19,48 @@ def main():
         print('---Hangman by Tellu---')
         print('######################\n')
 
-        print(f'Lives: {lives}\n')
+        print(f'Lives: {lifes}\n')
 
         print(' '.join(shown_word).upper())
-        if lives < 1:
-            print(' '.join(random_word).upper() + ' <- ANSWER')
-        print('')
 
-        if lives > 0 and '_' in shown_word:
+        # If he didnt lose and didn't guess all the letters, ask for input
+        if lifes > 0 and '_' in shown_word:
+            letter = input('\nGuess: ').lower()
 
-            letter = input('Guess: ').lower()
-
+            # If input is a letter
             if len(letter) == 1 and letter in string.ascii_letters:
+                # And not already tried letter
                 if letter in guessed:
                     print('You guessed it earlier!')
+                # And is in a random word
                 elif letter in random_word:
+                    # Then replace a letter using a func
                     replace_letter(letter, random_word, shown_word)
                     print('Yes!')
                 else:
-                    lives -= 1
+                    # Else subtract one life
+                    lifes -= 1
                     print('No!')
                 guessed.append(letter)
+
+            # Invalid input handling
             else:
                 if len(letter) > 1:
                     print('Slow down there! One letter at a time...')
                     time.sleep(1)
                 else:
                     print('No special characters!')
+        # Endgame
         else:
+            if lifes < 1:
+                print(' '.join(random_word).upper() + ' <- ANSWER')
             option = input(
-                'Game over! Do you want to continue? (Y/N) ').lower()
+                '\nGame over! Do you want to continue? (Y/N) ').lower()
             if option == 'y':
                 os.system('cls')
                 main()
             elif option == 'n':
-                return
+                sys.exit()
             else:
                 print('What?')
 
