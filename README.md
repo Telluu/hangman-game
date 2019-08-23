@@ -1,3 +1,3 @@
 # hangman-game
 
-Words database is getting worked on!
+Simple hangman game written in Python
