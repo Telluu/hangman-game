@@ -56,9 +56,9 @@ def main():
             if lifes < 1:
                 print(' '.join(random_word).upper() + ' <- ANSWER')
 
-            # Ask if the user wants to continue the game
+            # Ask if the user wants to play again
             option = input(
-                '\nGame over! Do you want to continue? (Y/N) ').lower()
+                '\nGame over! Do you want to play again? (Y/N) ').lower()
             if option == 'y' or option == 'yes':
                 os.system('cls')
                 main()
