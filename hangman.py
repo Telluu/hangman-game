@@ -52,7 +52,7 @@ def main():
                     print('No special characters!')
         # Endgame
         else:
-            # Show the answer if he lost
+            # Show the answer if user lost
             if lifes < 1:
                 print(' '.join(random_word).upper() + ' <- ANSWER')
 
