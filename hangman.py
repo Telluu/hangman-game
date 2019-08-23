@@ -19,7 +19,7 @@ def main():
         print('---Hangman by Tellu---')
         print('######################\n')
 
-        print(f'Lives: {lifes}\n')
+        print(f'Lifes: {lifes}\n')
 
         print(' '.join(shown_word).upper())
 
