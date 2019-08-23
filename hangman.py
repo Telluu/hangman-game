@@ -6,7 +6,7 @@ import os
 
 def main():
 
-    words = ['hard hangman']
+    words = ['hello world']
     guessed = []
     lives = 8
 
