@@ -36,7 +36,10 @@ def main():
             choosen_category = int(input(f'\nChoose (1-{len(categories)}): '))
         except ValueError:
             print(f'Only integers!')
+
+        # Checking if category exists
         if choosen_category > 0 and choosen_category <= len(categories):
+            # Then choosing category
             for index, category in enumerate(categories):
                 if (choosen_category - 1) == index:
                     random_word = random.choice(categories[category])
