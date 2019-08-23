@@ -47,7 +47,7 @@ def main():
             else:
                 if len(letter) > 1:
                     print('Slow down there! One letter at a time...')
-                    time.sleep(1)
+                    time.sleep(0.5)
                 else:
                     print('No special characters!')
         # Endgame
@@ -56,10 +56,10 @@ def main():
                 print(' '.join(random_word).upper() + ' <- ANSWER')
             option = input(
                 '\nGame over! Do you want to continue? (Y/N) ').lower()
-            if option == 'y':
+            if option == 'y' or option == 'yes':
                 os.system('cls')
                 main()
-            elif option == 'n':
+            elif option == 'n' or option == 'no':
                 sys.exit()
             else:
                 print('What?')
