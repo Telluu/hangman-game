@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import string
 import random
 import os
@@ -117,4 +119,5 @@ def replace_letter(letter, word, hidden_word):
             hidden_word[index] = letter
 
 
-main()
+if __name__ == '__main__':
+    main()
